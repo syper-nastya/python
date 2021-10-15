@@ -1,6 +1,25 @@
-stolb = int(input("Игра началась.Игрок 1 сейчас ваш ход. Введите столбец. "))
-while stolb not in ["1", "2", "3"]:
-    stolb = input("Такого столбца нет введите 1 или 2 или 3. ")
-strok = int(input("Теперь введите строку. "))
-while strok not in ["1", "2", "3"]:
-    strok = input("Такого столбца нет введите 1 или 2 или 3. ")
+pole = [["*", "*", "*"],
+        ["*", "*", "*"],
+        ["*", "*", "*",]]
+game = True
+while game:
+    otvet =  input("Игрок 1 ваш ход. Введите номер столбца и номер строки через пробел. ")
+    while otvet not in ["0 0", "0 1", "0 2", "1 0", "1 1", "1 2","2 0", "2 1", "2 2"]:
+        otvet = input("Такого ответа нет попробуйте ещё раз(например так 1 1)")
+    stroka = int(otvet[2])
+    stolb = int(otvet[0])
+    pole [stroka][stolb] = "х"
+    for a in pole:
+        print(a)
+    if pole [0][0] == "х" and [0][1] == "х" and [0][2] == "х" or :
+        print ("Ура игрок 1 выйграл!!!")
+        break
+    
+    otvet = input("Игрок 2 ваш ход. Введите номер столбца и номер строки через пробел. ")
+    while otvet not in ["0 0", "0 1", "0 2", "1 0", "1 1", "1 2","2 0", "2 1", "2 2"]:
+        otvet = input("Такого ответа нет попробуйте ещё раз(например так 1 1)")
+    stroka = int(otvet[2])
+    stolb = int(otvet[0])
+    pole [stroka][stolb] = "о"
+    for a in pole:
+        print(a)
