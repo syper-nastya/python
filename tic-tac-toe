@@ -1,37 +1,49 @@
-pole = [["*", "*", "*"],
-        ["*", "*", "*"],
-        ["*", "*", "*",]]
+pole = [["*", "*", "*", "*"],
+        ["*", "*", "*", "*"],
+        ["*", "*", "*", "*"],
+        ["*", "*", "*", "*"]]
+stroka = 0
+stolb = 0
+pole [0][0] = "+"
 game = True
+def vivod ():
+    for stroka in pole:
+        for kletka in stroka:
+            print (kletka, end = "")
+        print()
+vivod()
 while game:
-    otvet =  input("Игрок 1 ваш ход. Введите номер столбца и номер строки через пробел. ")
-    stolb = int(otvet[2])
-    stroka = int(otvet[0])
-    while otvet not in ["0 0", "0 1", "0 2", "1 0", "1 1", "1 2","2 0", "2 1", "2 2"] or pole[stroka][stolb]!="*":
-        if otvet not in ["0 0", "0 1", "0 2", "1 0", "1 1", "1 2","2 0", "2 1", "2 2"]:
-            otvet = input("Такого ответа нет попробуйте ещё раз(например так 1 1)")
-        if pole[stroka][stolb]!="*":
-            otvet = input("Это место уже занято попробуй другое место. ")
-        stolb = int(otvet[2])
-        stroka = int(otvet[0])
-    pole [stroka][stolb] = "х"
-    for a in pole:
-        print(a)
-    if pole [0][0] == "х" and pole [0][1] == "х" and pole [0][2] == "х" or pole [1][0] == "x" and pole [1][1] == "x" and pole [1][2] == "x"or pole [2][0] == "x" and pole [2][1] == "x" and pole [2][2] == "x" or pole [0][0] == "x" and pole [1][0] == "x" and pole [2][0] == "x" or pole [0][1] == "x" and pole [1][1] == "x" and pole [2][1] == "x" or pole [0][2] == "x" and pole [1][2] == "x" and pole [2][2] == "x"or pole [0][0] == "x" and pole [1][1] == "x" and pole [2][2] == "x" or pole [0][2] == "x" and pole [1][1] == "x" and pole [2][0] == "x":
-        print ("Ура игрок 1 выйграл!!!")
-        break
-    otvet = input("Игрок 2 ваш ход. Введите номер столбца и номер строки через пробел. ")
-    stolb = int(otvet[2])
-    stroka = int(otvet[0])
-    while otvet not in ["0 0", "0 1", "0 2", "1 0", "1 1", "1 2","2 0", "2 1", "2 2"] or pole[stroka][stolb]!="*":
-        if otvet not in ["0 0", "0 1", "0 2", "1 0", "1 1", "1 2","2 0", "2 1", "2 2"]:
-            otvet = input("Такого ответа нет попробуйте ещё раз(например так 1 1)")
-        if pole[stroka][stolb]!="*":
-            otvet = input("Это место уже занято попробуй другое место. ")
-        stolb = int(otvet[2])
-        stroka = int(otvet[0])
-    pole [stroka][stolb] = "o"
-    for a in pole:
-        print(a)
-    if pole [0][0] == "o" and pole [0][1] == "o" and pole [0][2] == "o" or pole [1][0] == "o" and pole [1][1] == "o" and pole [1][2] == "o" or pole [2][0] == "o" and pole [2][1] == "o" and pole [2][2] == "o" or pole [0][0] == "o" and pole [1][0] == "o" and pole [2][0] == "o" or pole [0][1] == "o" and pole [1][1] == "o" and pole [2][1] == "o" or pole [0][2] == "o" and pole [1][2] == "o" and pole [2][2] == "o" or pole [0][0] == "o" and pole [1][1] == "o" and pole [2][2] == "o" or pole [0][2] == "o" and pole [1][1] == "o" and pole [2][0] == "o":
-        print ("Ура игрок 2 выйграл!!!")
-        break
+    otvet =  input("""
+Напишите вправо, влево, верх или вниз: """)
+    if otvet == "вправо":
+        if stolb == 3:
+            otvet = input ("Вы дошли до края вы можете пойти только влево: ")
+        else:
+            pole [stroka] [stolb] = "*"
+            stolb = stolb + 1
+            pole [stroka] [stolb] = "+"
+        vivod()  
+    if otvet == "влево":
+        if stolb == 0:
+            otvet = input ("Вы дошли до края вы можете пойти только вправо: ")
+        else:
+            pole [stroka] [stolb] = "*"
+            stolb = stolb - 1
+            pole [stroka] [stolb] = "+"
+        vivod()
+    if otvet == "вверх":
+        if stroka == 0:
+            otvet = input ("Вы дошли до края вы можете идти только вниз: ")
+        else:
+            pole [stroka] [stolb] = "*"
+            stroka = stroka - 1
+            pole [stroka] [stolb] = "+"
+        vivod()
+    if otvet == "вниз":
+        if stroka == 3:
+            otvet = input ("Вы дошли до края вы можете идти только вверх: ")
+        else:
+            pole [stroka] [stolb] = "*"
+            stroka = stroka + 1
+            pole [stroka] [stolb] = "+"
+        vivod()
