@@ -1,11 +1,49 @@
-pole = [[" ", " ", " ", " "],
-        [" ", " ", " ", " "],
-        [" ", " ", " ", " "]
-        [" ", " ", " ", " "]
-        [" ", " ", " ", " "]]
+pole = [["*", "*", "*", "*"],
+        ["*", "*", "*", "*"],
+        ["*", "*", "*", "*"],
+        ["*", "*", "*", "*"]]
+stroka = 0
+stolb = 0
+pole [0][0] = "+"
 game = True
+def vivod ():
+    for stroka in pole:
+        for kletka in stroka:
+            print (kletka, end = "")
+        print()
+vivod()
 while game:
-    otvet =  input("""Вы играете за +
-                    что бы он мог ходить напишите
-                    лево, право, вверх или вниз""")
-    pole [stroka][stolb] = "+"
+    otvet =  input("""
+Напишите вправо, влево, верх или вниз: """)
+    if otvet == "вправо":
+        if stolb == 3:
+            otvet = input ("Вы дошли до края вы можете пойти только влево: ")
+        else:
+            pole [stroka] [stolb] = "*"
+            stolb = stolb + 1
+            pole [stroka] [stolb] = "+"
+        vivod()
+    if otvet == "влево":
+        if stolb == 0:
+            otvet = input ("Вы дошли до края вы можете пойти только вправо: ")
+        else:
+            pole [stroka] [stolb] = "*"
+            stolb = stolb - 1
+            pole [stroka] [stolb] = "+"
+        vivod()
+    if otvet == "вверх":
+        if stroka == 0:
+            otvet = input ("Вы дошли до края вы можете идти только вниз: ")
+        else:
+            pole [stroka] [stolb] = "*"
+            stroka = stroka - 1
+            pole [stroka] [stolb] = "+"
+        vivod()
+    if otvet == "вниз":
+        if stroka == 3:
+            otvet = input ("Вы дошли до края вы можете идти только вверх: ")
+        else:
+            pole [stroka] [stolb] = "*"
+            stroka = stroka + 1
+            pole [stroka] [stolb] = "+"
+        vivod()
