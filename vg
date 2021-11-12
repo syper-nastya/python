@@ -1,0 +1,25 @@
+for stroka in range(9):
+      for stolb in range(3):
+          print ("*", end = "")
+      print()
+print()
+for stroka in range(3):
+      for stolb in range(8):
+          print ("*", end = "")
+      print()
+print()
+for stroka in range(3):
+      for stolb in range(5):
+          print ("*", end = "")
+          if in stolb == range(5)"*":
+              print ("*", end = "")
+      print()
+print()
+for stroka in range(3):
+      for stolb in range(5):
+          print ("*", end = "")
+      print()
+for stroka in range(3):
+      for stolb in range(5):
+          print ("+", end = "")
+      print()
