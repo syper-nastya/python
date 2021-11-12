@@ -37,3 +37,12 @@ for stroka in range(1, 9):
         else:
             print("0", end = "")
     print()
+play = 7
+for stroka in range(1, 8):
+    for stolb in range(1, 8):
+        if stroka == stolb or stolb == play:
+            print("x",end = "")
+        else:
+            print("0", end = "")
+    play = play - 1
+    print()
