@@ -23,3 +23,10 @@ for stroka in range(3):
       for stolb in range(5):
           print ("+", end = "")
       print()
+for stroka in range(1, 6):
+    for stolb in range(1, 7):
+        if stolb <= 6 - stroka:
+            print("+", end = "")
+        else:
+            print("*", end = "")
+    print()
