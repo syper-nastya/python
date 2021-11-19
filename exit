@@ -1,0 +1,61 @@
+import random
+pole = [["*", "*", "*", "*", "*", "*", "*", "*", "*"],
+        ["*", "*", "*", "*", "*", "*", "*", "*", "*"],
+        ["*", "*", "*", "*", "*", "*", "*", "*", "*"],
+        ["*", "*", "*", "*", "*", "*", "*", "*", "*"],
+        ["*", "*", "*", "*", "*", "*", "*", "*", "!"],
+        ["*", "*", "*", "*", "*", "*", "*", "*", "*"],
+        ["*", "*", "*", "*", "*", "*", "*", "*", "*"],
+        ["*", "*", "*", "*", "*", "*", "*", "*", "*"],
+        ["*", "*", "*", "*", "*", "*", "*", "*", "*"]]
+stroka = random.randint(0, 8)
+stolb = random.randint(0, 8)
+pole[stroka][stolb] = "+"
+game = True
+def vivod ():
+    for stroka in pole:
+        for kletka in stroka:
+                print(kletka, end = "")
+        print()
+vivod()
+print ("Вы играете за +. Вам нужно дойти до !.")
+while game:
+    otvet = input("""
+Чтобы куда нибудь пойти
+вам нужно написать
+вправо, влево, вверх или вниз. """)
+    if stolb == 8 and stroka == 4:
+        print("Ура!!! Вы дошли до выхода!!! Вы прошли игру!!!")
+        exit()
+    if otvet == "вправо":
+        if stolb == 8:
+            print ("Вы дошли до края вы не можете пойти направо.")
+        else:
+            pole [stroka] [stolb] = "*"
+            stolb = stolb + 1
+            pole [stroka] [stolb] = "+"
+            vivod()
+    if otvet == "влево":
+        if stolb == 0:
+            print ("Вы дошли до края вы не можете пойти налево.")
+        else:
+            pole [stroka] [stolb] = "*"
+            stolb = stolb - 1
+            pole [stroka] [stolb] = "+"
+            vivod()
+    if otvet == "вверх":
+        if stroka == 0:
+            print ("Вы дошли до края вы не можете пойти вверх.")
+        else:
+            pole [stroka] [stolb] = "*"
+            stroka = stroka - 1
+            pole [stroka] [stolb] = "+"
+            vivod()
+    if otvet == "вниз":
+        if stroka == 8:
+            print ("Вы дошли до края вы не можете пойти вниз.")
+        else:
+            pole [stroka] [stolb] = "*"
+            stroka = stroka + 1
+            pole [stroka] [stolb] = "+"
+            vivod()
