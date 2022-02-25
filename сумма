@@ -1,0 +1,6 @@
+n = int(input("введите кол-во слагаемых "))
+cyma = 0
+for step in range(n):
+    cyma = cyma + int(input("введите слагаемое "))
+print("сумма ведённых чисел равна")
+print(cyma) 
