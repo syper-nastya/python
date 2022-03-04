@@ -43,3 +43,16 @@ pyautogui.doubleClick()
 pyautogui.moveTo(1258, 143)
 pyautogui.click(button = "left")
 pyautogui.hotkey('ctrl', 'v')
+
+
+import pyautogui
+import time
+pyautogui.hotkey('win', 'd')
+pyautogui.moveTo(338,231)
+pyautogui.doubleClick()
+time.sleep(4)
+pyautogui.moveTo(936,87)
+pyautogui.click(button = "left")
+pyautogui.moveTo(31,250)
+pyautogui.mouseDown()
+pyautogui.moveTo(197,226)
