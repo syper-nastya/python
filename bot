@@ -1,0 +1,45 @@
+import pyautogui
+print(pyautogui.position())
+pyautogui.hotkey('win', 'd')
+pyautogui.moveTo(498,233)
+pyautogui.doubleClick()
+
+
+import pyautogui
+import time
+pyautogui.moveTo(241, 749)
+pyautogui.click(button = "left")
+pyautogui.moveTo(1118, 15)
+pyautogui.click(button = "left")
+pyautogui.moveTo(477, 424)
+time.sleep(1)
+pyautogui.click(button = "left")
+pyautogui.write("hfpevty kb z?")
+pyautogui.press("enter")
+
+
+import pyautogui
+pyautogui.hotkey('win', 'd')
+pyautogui.moveTo(414,329)
+pyautogui.doubleClick()
+pyautogui.moveTo(1258, 143)
+pyautogui.click(button = "left")
+pyautogui.moveTo(414,329)
+pyautogui.click(button = "left")
+pyautogui.write('Zubnoj v 8:00')
+
+
+import pyautogui
+pyautogui.hotkey('win', 'd')
+pyautogui.moveTo(414,329)
+pyautogui.doubleClick()
+pyautogui.moveTo(1258, 143)
+pyautogui.click(button = "left")
+pyautogui.hotkey('ctrl', 'a')
+pyautogui.hotkey('ctrl', 'c')
+pyautogui.hotkey('alt', 'f4')
+pyautogui.moveTo(411,437)
+pyautogui.doubleClick()
+pyautogui.moveTo(1258, 143)
+pyautogui.click(button = "left")
+pyautogui.hotkey('ctrl', 'v')
