@@ -1,0 +1,13 @@
+import pyautogui
+import time
+namber = int(input("Введите число "))
+namber = namber + 1
+for step in range(1, namber):
+    print(step)
+pyautogui.moveTo(237, 749)
+pyautogui.click()
+time.sleep(4)
+namber = namber - 1
+pyautogui.moveTo(1101, 23)
+for step in range(1, namber):
+    pyautogui.hotkey('ctrl', 't')
