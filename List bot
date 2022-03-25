@@ -1,0 +1,20 @@
+List = ['поспать']
+for elem in List:
+    print(elem)
+action = input(" введите добавить, удалить или показать элемент по номеру ")
+while(action != "пока"):
+    if action == "добавить":
+        List.append(input('Введите действие в список '))
+        for elem in List:
+            print(elem)
+    elif action == 'удалить':
+        n = int(input('введи номер числа которое хотите удалить '))
+        n = n - 1 
+        del List[n]
+        for elem in List:
+            print(elem)
+    elif action == 'показать элемент по номеру':
+        n = int(input('введи номер числа '))
+        n = n - 1 
+        print(List[n])
+    action = input(" введите добавить, удалить или показать элемент по номеру ")
