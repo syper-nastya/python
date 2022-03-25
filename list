@@ -1,0 +1,10 @@
+myList = ['огурец', 'кабачёк', 'капуста']
+for elem in myList:
+    print(elem)
+print('это твой список продуктов')
+myList.append(input("введите новый овощ в список "))
+for elem in myList:
+    print(elem)
+myList.append(input("введите ещё один овощ в список "))
+for elem in myList:
+    print(elem)
