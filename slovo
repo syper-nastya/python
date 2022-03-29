@@ -1,0 +1,28 @@
+slovo = ['*', '*', '*']
+for elem in slovo:
+    print(elem,end='')
+print()
+b = input('это игра в которой вы должны угодать слово для этого напишите любую букву ')
+while (b != 'пока'):
+    if slovo == ['к', 'о', 'т']:
+        print('ура ты угодал всё слово')
+    else:
+        if b == 'к':
+            slovo[0] = 'к' 
+            for elem in slovo:
+                print(elem,end='')
+            print()
+        elif b == 'о':
+            slovo[1] = 'о' 
+            for elem in slovo:
+                print(elem,end='')
+            print()
+        elif b == 'т':
+            slovo[2] = 'т' 
+            for elem in slovo:
+                print(elem,end='')
+            print()
+        else:
+            print('такой буквы в этом слове нет')
+        b = input('введите следующю букву ')
+print("пока")
