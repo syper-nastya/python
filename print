@@ -1,0 +1,5 @@
+import time
+List = input('введите слово ')
+for elem in List:
+    print(elem)
+    time.sleep(1)
