@@ -1,0 +1,6 @@
+c =[ ]
+for elem in range(5):
+    c.append(input("Введите элемент списка "))
+c.insert(0, "A")
+for elem in c:
+    print(elem,  )
