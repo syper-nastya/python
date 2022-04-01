@@ -1,0 +1,14 @@
+c =[ ]
+plus = int(0)
+minus = int(0)
+for elem in range(5):
+    c.append(int(input("Введите число ")))
+for elem in c:
+    if elem > -1:
+        plus = plus + 1
+    elif elem < 0:
+        minus = minus + 1
+print('положительных чисел: ')
+print(plus)
+print('отрицательных чисел: ')
+print(minus)
