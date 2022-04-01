@@ -1,0 +1,9 @@
+c =[ ]
+n = int(-1)
+multiply = int(1)
+for elem in range(5):
+    c.append(int(input("Введите множитель ")))
+for elem in c:      
+    multiply = multiply * elem
+print("произведение ведённых чисел равно")
+print(multiply) 
