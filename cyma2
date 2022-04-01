@@ -1,0 +1,9 @@
+c =[ ]
+n = int(-1)
+cyma = int(0)
+for elem in range(10):
+    c.append(int(input("Введите cлагаемое ")))
+for elem in c:      
+    cyma = cyma + elem
+print("сумма ведённых чисел равна")
+print(cyma) 
