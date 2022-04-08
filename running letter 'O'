@@ -1,0 +1,41 @@
+pole = [["*", "*", "*", "*"],
+        ["*", "*", "*", "*"],
+        ["*", "*", "*", "*"],
+        ["*", "*", "*", "*"]]
+stroka = 0
+stolb = 0
+pole [0][0] = "О"
+game = True
+def vivod ():
+    for stroka in pole:
+        for kletka in stroka:
+            print (kletka, end = "")
+        print()
+vivod()
+otvet1 = 0
+otvet2 = 0
+while game:
+    pole [otvet1][otvet2] = "*"
+    otvet1 =  int(input("""
+введите строку на которую
+перейдёт бука 'O': """))
+    if otvet1 > 3:
+        while otvet1 > 3:
+            otvet1 = int(input("""
+введите строку на которую
+перейдёт бука 'O'
+(прошлый номер строки
+больше чем кол-во строчек): """))
+    otvet2 = int(input("""
+введите столбец в который
+перейдёт бука 'O': """))
+    if otvet2 > 3:
+        while otvet2 > 3:
+            otvet2 = int(input("""
+введите столбец на который
+перейдёт бука 'O'
+(прошлый номер столбца
+больше чем кол-во столбцов): """))
+    else:
+        pole[otvet1][otvet2] = "О"
+    vivod()
