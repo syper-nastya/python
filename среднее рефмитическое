@@ -1,0 +1,8 @@
+number = ['1', '2', '3', '4', '5']
+crednee = 0
+for elem in range(5):
+    crednee = crednee + int(number[elem])
+ymn = len(number)
+crednee = crednee / ymn
+print('среднее арифметическое этих чисел равно')
+print(crednee)
