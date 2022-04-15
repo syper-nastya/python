@@ -19,6 +19,7 @@ while game:
     otvet1 =  int(input("""
 введите строку на которую
 перейдёт бука 'O': """))
+    otvet1 = otvet1 - 1
     if otvet1 > 3:
         while otvet1 > 3:
             otvet1 = int(input("""
@@ -29,6 +30,7 @@ while game:
     otvet2 = int(input("""
 введите столбец в который
 перейдёт бука 'O': """))
+    otvet2 = otvet2 - 1
     if otvet2 > 3:
         while otvet2 > 3:
             otvet2 = int(input("""
