@@ -1,0 +1,80 @@
+import random
+pole1 = [[".", "#", "#", ".", "#"],
+         [".", ".", ".", ".", "."],
+         ["#", ".", ".", "#", "."],
+         ["#", ".", ".", ".", "."],
+         ["#", ".", ".", "#", "#"]]
+pole2 = [["#", ".", ".", ".", "."],
+         ["#", ".", ".", "#", "#"],
+         ["#", ".", ".", ".", "."],
+         [".", ".", "#", "#", "."],
+         ["#", ".", ".", ".", "#"]]
+pole3 = [[".", ".", ".", ".", "."],
+         [".", ".", ".", ".", "."],
+         [".", ".", ".", ".", "."],
+         [".", ".", ".", ".", "."],
+         [".", ".", ".", ".", "."]]
+game = True
+def vivod1 ():
+    for stroka in pole1:
+        for kletka in stroka:
+            print (kletka, end = "")
+        print()
+def vivod2 ():
+    for stroka in pole2:
+        for kletka in stroka:
+            print (kletka, end = "")
+        print()
+def vivod3 ():
+    for stroka in pole3:
+        for kletka in stroka:
+            print (kletka, end = "")
+        print()
+print('''это игра морской бой!
+ты играешь с компьютером.
+сейчас я покажу твое поле.
+корабли будут выглядеть так '#'. ''')
+vivod1()
+print('это твое поле и твои карабли')
+while game == True:
+    otvet1 = int(input('твой ход)) напиши строку в которую хочешь стрельнуть '))
+    while otvet1 > 4 or otvet1 < 0:
+            otvet1 = int(input("напиши строку в которую хочешь стрельнуть"))
+    otvet2 = int(input("напиши cтолбец в который хочешь стрельнуть "))
+    while otvet2 > 4 or otvet2 < 0:
+            otvet1 = int(input("напиши стролбец в который хочешь стрельнуть"))
+    while pole3[otvet1][otvet2] == "*" or pole3[otvet1][otvet2] == "0":
+        otvet1 = int(input("ты уже стрелял сюда напиши новую строку в которую хочешь стрельнуть"))
+        otvet2 = int(input("напиши новый cтолбец в который хочешь стрельнуть "))
+    else:
+        if pole2[otvet1][otvet2] == "#":
+            pole3[otvet1][otvet2] = "0"
+            print("ураа ты попал")
+            vivod3()
+            print('''это то как ты видишь поле врага
+(0 - корабли или их части в которые ты попал)
+(* - твои промахи)''')
+        elif pole2[otvet1][otvet2] == ".":
+            print('ты промахнулся')
+            pole3[otvet1][otvet2] = "*"
+            vivod3()
+            print('''это то как ты видишь поле врага
+(0 - корабли или их части в которые ты попал)
+(* - твои промахи)''')
+        bot1 = random.randint(0,4)
+        bot2 = random.randint(0,4)
+        print('компьютер целется')
+        if pole1[bot1][bot2] == "#" or pole1[bot1][bot2] == "0":
+            pole1[bot1][bot2] = "0"
+            print('БАМ!! компьютер попал теперь твое поле выглядит так:')
+            vivod1()
+        if pole1[bot1][bot2] == "." or pole1[bot1][bot2] == "*":
+            pole1[bot1][bot2] = "*"
+            print('БАМ! компьютер не попал)) твое поле выглядит так:')
+            vivod1()
+        if pole1[0][1] == "0" and pole1[0][2] == "0" and pole1[0][4] == "0" and pole1[2][0] == "0" and pole1[2][3] == "0" and pole1[3][0] == "0" and pole1[4][0] == "0" and pole1[4][3] == "0" and pole1[4][4] == "0":
+            print("ОЙ компьютер выйграл")
+            game = False
+        if pole3[0][0] == "0" and pole3[1][0] == "0" and pole3[2][0] == "0" and pole3[4][0] == "0" and pole3[1][3] == "0" and pole3[1][4] == "0" and pole3[3][2] == "0" and pole3[3][3] == "0" and pole3[4][4] == "0":
+            print('Ура ты выйграл')
+            game = False
