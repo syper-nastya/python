@@ -1,0 +1,119 @@
+import copy
+pole1 = [[".", "#", "#", "#", "#"],
+         [".", "#", ".", ".", "."],
+         [".", ".", ".", "#", "!"],
+         ["#", ".", ".", "#", "."],
+         ["#", "#", ".", ".", "."]]
+pole2 = [[".", "#", "!", ".", ".", "#", "#"],
+         [".", "#", "#", "#", ".", ".", "."],
+         [".", ".", ".", "#", "#", "#", "."],
+         ["#", "#", ".", "#", "#", "#", "."],
+         [".", ".", ".", "#", ".", ".", "."],
+         [".", "#", "#", "#", ".", "#", "#"],
+         [".", ".", ".", ".", ".", "#", "#"]]
+pole3 = [[".", ".", ".", ".", "#", ".", ".", ".", ".", "!"],
+         ["#", "#", "#", ".", "#", ".", "#", "#", "#", "#"],
+         [".", ".", "#", ".", "#", ".", "#", "#", ".", "#"],
+         [".", "#", "#", ".", "#", ".", ".", "#", ".", "#"],
+         [".", "#", ".", ".", "#", ".", "#", "#", ".", "#"],
+         [".", ".", ".", ".", "#", ".", "#", ".", ".", "#"],
+         [".", "#", "#", "#", "#", ".", "#", ".", ".", "."],
+         [".", "#", ".", ".", ".", ".", ".", ".", "#", "."],
+         [".", "#", "#", "#", "#", ".", "#", ".", "#", "."],
+         [".", ".", ".", ".", ".", ".", "#", ".", ".", "."]]
+print('''Привет это игра лабиринт))
+В этой игре вы должны дойти до финиша(!)
+Не натыкаясь на стены (#)''')
+game = True
+def vivod (pole):
+    for stroka in pole :
+        for kletka in stroka:
+            print (kletka, end = "")
+        print()
+play = True
+while play == True:
+    ckin = input('''Какой скин вы хотите?
+Вы можете можете выбрать его сами!!
+(напишите 1 букву или символ и он станет вашим скином кроме знака "#" и ".") ''')
+    y = input('''В этой игре есть 3 сложности,
+Если вы хотите играть в очень лёгкую версию напишите "1",
+Если вы хотите играть в нормальную версию напишите "2",
+Если вы хотите играть в сложную версию напишите "3" ''')
+    if y == '1':
+        pole = copy.deepcopy(pole1)
+        kr = 4
+        vuh1 = 2
+        vuh2 = 4
+    elif y == '2':
+        pole = pole2
+        kr = 6
+        vuh1 = 0
+        vuh2 = 2
+    elif y == '3':
+        pole = pole3
+        kr = 9
+        vuh1 = 0
+        vuh2 = 9
+    stroka = 0
+    stolb = 0
+    pole [0][0] = ckin
+    vivod(pole)
+    while game == True:
+        otvet =  input("""
+Напишите вправо, влево, вверх или вниз: """)
+        if otvet == "влево":
+            if stolb == 0:
+                otvet = input ("Вы дошли до края: ")
+            else:
+                pole [stroka] [stolb] = "."
+                stolb = stolb - 1
+                if pole [stroka][stolb] == "#":
+                    stolb = 0
+                    stroka = 0
+                    pole [0] [0] = ckin
+                else:
+                    pole [stroka] [stolb] = ckin
+                vivod(pole)
+        if otvet == "вправо":
+            if stolb == kr:
+                otvet = input ("Вы дошли до края: ")
+            else:
+                pole [stroka] [stolb] = "."
+                stolb = stolb + 1
+                if pole [stroka][stolb] == "#":
+                    stolb = 0
+                    stroka = 0
+                    pole [0] [0] = ckin
+                else:
+                    pole [stroka] [stolb] = ckin
+                vivod(pole)
+        if otvet == "вверх":
+            if stroka == 0:
+                otvet = input ("Вы дошли до края: ")
+            else:
+                pole [stroka] [stolb] = "."
+                stroka = stroka - 1
+                if pole [stroka][stolb] == "#":
+                    stroka = 0
+                    stolb = 0
+                    pole [0] [0] = ckin
+                else:
+                    pole [stroka] [stolb] = ckin
+                vivod(pole)
+        if otvet == "вниз":
+            if stroka == kr:
+                otvet = input ("Вы дошли до края: ")
+            else:
+                pole [stroka] [stolb] = "."
+                stroka = stroka + 1
+                if pole [stroka][stolb] == "#":
+                    stroka = 0
+                    stolb = 0
+                    pole [0] [0] = ckin
+                else:
+                    pole [stroka] [stolb] = ckin
+                vivod(pole)
+        if pole[vuh1][vuh2] == ckin:
+            print('''Урааа вы выйграли!!!!!
+Давайте сыграем заново на этой же сложности или на другой;) ''')
+            game = False
