@@ -23,7 +23,6 @@ pole3 = [[".", ".", ".", ".", "#", ".", ".", ".", ".", "!"],
 print('''Привет это игра лабиринт))
 В этой игре вы должны дойти до финиша(!)
 Не натыкаясь на стены (#)''')
-game = True
 def vivod (pole):
     for stroka in pole :
         for kletka in stroka:
@@ -32,37 +31,38 @@ def vivod (pole):
 play = True
 while play == True:
     ckin = input('''Какой скин вы хотите?
-Вы можете можете выбрать его сами!!
-(напишите 1 букву или символ и он станет вашим скином кроме знака "#" и ".") ''')
-    y = input('''В этой игре есть 3 сложности,
+Вы можете выбрать его сами!!
+(напишите 1 букву,цифру или символ (кроме знака "#" и "."), и он станет вашим скином) ''')
+    level = input('''В этой игре есть 3 сложности,
 Если вы хотите играть в очень лёгкую версию напишите "1",
-Если вы хотите играть в нормальную версию напишите "2",
+Если хотите играть в нормальную версию напишите "2",
 Если вы хотите играть в сложную версию напишите "3" ''')
-    if y == '1':
+    if level == '1':
         pole = pole1
         kr = 4
-        vuh1 = 2
-        vuh2 = 4
-    elif y == '2':
+        win1 = 2
+        win2 = 4
+    elif level == '2':
         pole = pole2
         kr = 6
-        vuh1 = 0
-        vuh2 = 2
-    elif y == '3':
+        win1 = 0
+        win2 = 2
+    elif level == '3':
         pole = pole3
         kr = 9
-        vuh1 = 0
-        vuh2 = 9
+        win1 = 0
+        win2 = 9
     stroka = 0
     stolb = 0
     pole [0][0] = ckin
     vivod(pole)
+    game = True
     while game == True:
         otvet =  input("""
 Напишите вправо, влево, вверх или вниз: """)
         if otvet == "влево":
             if stolb == 0:
-                otvet = input ("Вы дошли до края: ")
+                otvet = input ("Вы дошли до края ,иди в другую сторону ")
             else:
                 pole [stroka] [stolb] = "."
                 stolb = stolb - 1
@@ -75,7 +75,7 @@ while play == True:
                 vivod(pole)
         if otvet == "вправо":
             if stolb == kr:
-                otvet = input ("Вы дошли до края: ")
+                otvet = input ("Вы дошли до края ,иди в другую сторону ")
             else:
                 pole [stroka] [stolb] = "."
                 stolb = stolb + 1
@@ -88,7 +88,7 @@ while play == True:
                 vivod(pole)
         if otvet == "вверх":
             if stroka == 0:
-                otvet = input ("Вы дошли до края: ")
+                otvet = input ("Вы дошли до края ,иди в другую сторону ")
             else:
                 pole [stroka] [stolb] = "."
                 stroka = stroka - 1
@@ -101,7 +101,7 @@ while play == True:
                 vivod(pole)
         if otvet == "вниз":
             if stroka == kr:
-                otvet = input ("Вы дошли до края: ")
+                otvet = input ("Вы дошли до края ,иди в другую сторону ")
             else:
                 pole [stroka] [stolb] = "."
                 stroka = stroka + 1
@@ -112,7 +112,7 @@ while play == True:
                 else:
                     pole [stroka] [stolb] = ckin
                 vivod(pole)
-        if pole[vuh1][vuh2] == ckin:
+        if pole[win1][win2] == ckin:
             print('''Урааа вы выйграли!!!!!
-Давайте сыграем заново на этой же сложности или на другой;) ''')
+Давайте сыграем заново на этой же сложности или на другой;)''')
             game = False
